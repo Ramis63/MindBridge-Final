@@ -24,7 +24,7 @@ const SELF_CARE_TIPS = {
 };
 
 export default function ResourceHub({ logs, settings, onSettingsChange }) {
-  const latestLog = logs[0]; 
+  const latestLog = logs[0];
 
   const activeCategory = useMemo(() => {
     if (!latestLog) return 'general';
@@ -44,7 +44,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
 
   // State for Suggested Tip Modal
   const [selectedTip, setSelectedTip] = useState(null);
-  
+
   // Breathing Timer state
   const [pacerState, setPacerState] = useState('Inhale'); // Inhale, Hold, Exhale, Hold
   const [pacerCount, setPacerCount] = useState(4);
@@ -149,7 +149,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
 
   return html`
     <div className="space-y-6">
-      
+
       <!-- Privacy Toggle Card -->
       <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-5 shadow-sm transition-all duration-300 space-y-4">
         <div className="flex items-center gap-3">
@@ -172,14 +172,14 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
                 Contribute your de-identified, aggregated mental health metrics to help university wellness officers improve campus support resources.
               </p>
             </div>
-            
+
             <button
               onClick=${handleSharingToggle}
               className="focus:outline-none shrink-0 transition-transform active:scale-95"
               id="sharing-toggle-btn"
               aria-label="Toggle anonymous campus data sharing"
             >
-              ${settings.anonymousSharing 
+              ${settings.anonymousSharing
                 ? html`<${ToggleRight} className="w-12 h-8 text-emerald-500" />`
                 : html`<${ToggleLeft} className="w-12 h-8 text-slate-300 dark:text-slate-600" />`
               }
@@ -224,8 +224,8 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
 
         <div className="space-y-3.5 pt-1">
           ${tipsToDisplay.map((tip, idx) => html`
-            <div 
-              key=${idx} 
+            <div
+              key=${idx}
               onClick=${() => {
                 setSelectedTip(tip);
                 if (tip.type === 'timer') {
@@ -266,7 +266,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
         </div>
 
         <div className="grid grid-cols-1 gap-3.5">
-          
+
           <div className="p-4 rounded-xl border border-slate-100 dark:border-slate-800/60 bg-slate-50/20 dark:bg-slate-900/30 space-y-3">
             <div>
               <h3 className="text-xs font-bold text-slate-800 dark:text-white">University Psychological Counseling</h3>
@@ -275,15 +275,15 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xxs font-bold">
-              <a 
-                href="mailto:counseling@university.edu" 
+              <a
+                href="mailto:counseling@university.edu"
                 className="flex items-center gap-2 py-2 px-3 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg hover:text-emerald-500 dark:hover:text-emerald-400 border border-slate-100 dark:border-slate-800/60 transition"
               >
                 <${Mail} className="w-4 h-4 text-emerald-500" />
                 <span>counseling@university.edu</span>
               </a>
-              <a 
-                href="tel:+15550198234" 
+              <a
+                href="tel:+15550198234"
                 className="flex items-center gap-2 py-2 px-3 bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg hover:text-emerald-500 dark:hover:text-emerald-400 border border-slate-100 dark:border-slate-800/60 transition"
               >
                 <${Phone} className="w-4 h-4 text-emerald-500" />
@@ -327,14 +327,14 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
               </p>
             </div>
             <div className="flex gap-2 font-bold text-xs">
-              <a 
-                href="tel:988" 
+              <a
+                href="tel:988"
                 className="flex-1 sm:flex-none text-center text-white bg-rose-500 hover:bg-rose-600 px-4 py-2 rounded-xl transition"
               >
                 Call 988
               </a>
-              <button 
-                onClick=${() => { alert("Simulating Crisis SMS: Sent 'HOME' to 741741. A welfare counselor will connect shortly."); }} 
+              <button
+                onClick=${() => { alert("Simulating Crisis SMS: Sent 'HOME' to 741741. A welfare counselor will connect shortly."); }}
                 className="flex-1 sm:flex-none text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/40 px-4 py-2 rounded-xl transition"
               >
                 Text HOME
@@ -349,7 +349,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
       ${selectedTip && html`
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-md animate-fade-in animate-duration-200">
           <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl w-full max-w-md shadow-2xl p-6 relative space-y-5 animate-scale-in">
-            
+
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
               <h3 className="text-sm font-extrabold text-slate-850 dark:text-white tracking-tight flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -373,10 +373,10 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
             <!-- BREATH PACER MOCK MODAL -->
             ${selectedTip.type === 'breathing' && html`
               <div className="py-6 flex flex-col items-center justify-center bg-slate-50/50 dark:bg-slate-950/30 rounded-2xl border border-slate-100 dark:border-slate-800/60 space-y-6">
-                
+
                 <!-- Expanding breathing circle -->
                 <div className="relative w-44 h-44 flex items-center justify-center">
-                  <div 
+                  <div
                     className="absolute rounded-full bg-emerald-500/10 dark:bg-emerald-400/5 transition-all duration-1000 ease-in-out border border-emerald-500/20"
                     style=${{
                       width: pacerState === 'Inhale' || pacerState === 'Hold (Full)' ? '100%' : '50%',
@@ -384,7 +384,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
                       boxShadow: pacerState === 'Hold (Full)' ? '0 0 30px rgba(16,185,129,0.3)' : 'none'
                     }}
                   ></div>
-                  <div 
+                  <div
                     className="w-24 h-24 rounded-full bg-gradient-to-tr from-emerald-400 to-teal-500 text-white flex flex-col items-center justify-center font-bold text-center select-none shadow-lg shadow-emerald-100 transition-all duration-1000 ease-in-out"
                     style=${{
                       transform: pacerState === 'Inhale' || pacerState === 'Hold (Full)' ? 'scale(1.15)' : 'scale(0.85)'
@@ -414,7 +414,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
             <!-- GENERAL COUNTDOWN TIMER -->
             ${selectedTip.type === 'timer' && html`
               <div className="py-6 flex flex-col items-center justify-center bg-slate-50/50 dark:bg-slate-950/30 rounded-2xl border border-slate-100 dark:border-slate-800/60 space-y-4">
-                
+
                 <div className="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
                   ${Math.floor(generalTimer / 60)}:${String(generalTimer % 60).padStart(2, '0')}
                 </div>
@@ -465,7 +465,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
       ${showBookingModal && html`
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-md animate-fade-in animate-duration-200">
           <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl w-full max-w-md shadow-2xl p-6 relative space-y-5 animate-scale-in">
-            
+
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
               <h3 className="text-sm font-extrabold text-slate-855 dark:text-white tracking-tight flex items-center gap-1.5">
                 <span className="p-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500"><${Calendar} className="w-4 h-4" /></span>
@@ -519,7 +519,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
             ` : html`
               <!-- Booking Form -->
               <form onSubmit=${handleBookAppointment} className="space-y-4">
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <!-- Date -->
                   <div className="space-y-1">
@@ -533,7 +533,7 @@ export default function ResourceHub({ logs, settings, onSettingsChange }) {
                       className="w-full px-3 py-2 rounded-xl border border-slate-100 dark:border-slate-700 text-xxs text-slate-700 dark:text-slate-300 bg-slate-50/50 dark:bg-slate-900/40 focus:outline-none"
                     />
                   </div>
-                  
+
                   <!-- Time Slots -->
                   <div className="space-y-1">
                     <label className="text-xxs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Time Slot</label>

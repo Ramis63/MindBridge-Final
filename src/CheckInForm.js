@@ -16,7 +16,7 @@ const POPULAR_TAGS = ['#Exam', '#Social', '#SleepDeprived', '#RestDay', '#Exerci
 
 export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
   const getLocalDateString = (d) => {
-    return d.toLocaleDateString('sv-SE'); 
+    return d.toLocaleDateString('sv-SE');
   };
 
   const todayStr = getLocalDateString(new Date());
@@ -25,7 +25,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const [date, setDate] = useState(todayStr);
-  const [mood, setMood] = useState(4); 
+  const [mood, setMood] = useState(4);
   const [energy, setEnergy] = useState(3);
   const [sleepHours, setSleepHours] = useState(7);
   const [sleepQuality, setSleepQuality] = useState('Good');
@@ -70,7 +70,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const newLog = {
       date,
       mood,
@@ -89,7 +89,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
 
   const formatDateDisplay = (dateStr) => {
     const options = { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' };
-    const parsedDate = new Date(dateStr + 'T00:00:00'); 
+    const parsedDate = new Date(dateStr + 'T00:00:00');
     return parsedDate.toLocaleDateString('en-US', options);
   };
 
@@ -123,7 +123,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
 
   return html`
     <div className="space-y-6">
-      
+
       <!-- 1. DASHBOARD STATUS CARD -->
       <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-xl shadow-slate-100/50 dark:shadow-none transition-all duration-300 relative overflow-hidden">
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-20">
@@ -180,7 +180,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
       ${showModal && html`
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-md animate-fade-in animate-duration-200">
           <div className="bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80 rounded-3xl w-full max-w-md max-h-[90vh] overflow-y-auto no-scrollbar shadow-2xl p-5 relative space-y-5 animate-scale-in">
-            
+
             <!-- Close header -->
             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
               <div className="flex items-center gap-2">
@@ -225,7 +225,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
 
             <!-- Form -->
             <form onSubmit=${handleSubmit} className="space-y-4">
-              
+
               <!-- Mood -->
               <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-4 space-y-3">
                 <label className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
@@ -243,8 +243,8 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
                         type="button"
                         onClick=${() => setMood(m.value)}
                         className="flex-1 flex flex-col items-center py-2 rounded-lg transition-all duration-200 border border-transparent ${
-                          isActive 
-                            ? m.activeColor 
+                          isActive
+                            ? m.activeColor
                             : `border-slate-100 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/40 text-slate-400 dark:text-slate-500 ${m.hoverColor}`
                         }"
                       >
@@ -258,7 +258,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
 
               <!-- Energy & Sleep -->
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
+
                 <!-- Energy -->
                 <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-4 space-y-3">
                   <label className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center justify-between">
@@ -317,7 +317,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
 
               <!-- Sleep Quality & Stress -->
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
+
                 <!-- Sleep Quality -->
                 <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-2xl p-4 space-y-3">
                   <label className="text-xs font-bold text-slate-800 dark:text-white">Sleep Quality</label>
@@ -393,8 +393,8 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
                           type="button"
                           onClick=${() => handleTagToggle(tag)}
                           className="py-0.5 px-2 rounded-md text-xxxs font-bold border transition ${
-                            isSelected 
-                              ? 'bg-emerald-500 text-white border-transparent' 
+                            isSelected
+                              ? 'bg-emerald-500 text-white border-transparent'
                               : 'border-slate-100 dark:border-slate-800 bg-slate-50/20 dark:bg-slate-900/30 text-slate-500 dark:text-slate-400'
                           }"
                         >
@@ -426,7 +426,7 @@ export default function CheckInForm({ logs, onLogSaved, setActiveTab }) {
       ${showSuccessModal && html`
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 dark:bg-slate-950/60 backdrop-blur-md animate-fade-in animate-duration-200">
           <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl w-full max-w-sm shadow-2xl p-6 relative text-center space-y-5 animate-scale-in">
-            
+
             <div className="flex flex-col items-center gap-2">
               <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-emerald-500 dark:text-emerald-400 flex items-center justify-center shadow-lg shadow-emerald-100/50 dark:shadow-none">
                 <${CheckCircle} className="w-8 h-8" />

@@ -46,7 +46,7 @@ export default function OnboardingWizard({ settings, onSave }) {
 
   return html`
     <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-300 relative overflow-hidden">
-      
+
       <!-- Calming background bubbles -->
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none select-none opacity-40 dark:opacity-20 transition-opacity duration-1000">
         <div className="absolute -top-[10%] -left-[20%] w-[80%] h-[60%] rounded-full bg-gradient-to-br from-emerald-200 to-teal-100 blur-[130px] dark:from-emerald-900/30 dark:to-teal-900/10"></div>
@@ -68,11 +68,11 @@ export default function OnboardingWizard({ settings, onSave }) {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
         <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg py-8 px-6 shadow-xl border border-slate-100 dark:border-slate-800 rounded-3xl space-y-6">
-          
+
           <!-- Progress bar -->
           <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1">
-            <div 
-              className="bg-gradient-to-r from-emerald-400 to-teal-500 h-1 rounded-full transition-all duration-500" 
+            <div
+              className="bg-gradient-to-r from-emerald-400 to-teal-500 h-1 rounded-full transition-all duration-500"
               style=${{ width: `${(step / 3) * 100}%` }}
             ></div>
           </div>
@@ -98,8 +98,8 @@ export default function OnboardingWizard({ settings, onSave }) {
                       key=${goal.id}
                       onClick=${() => handleGoalToggle(goal.id)}
                       className="w-full flex items-start gap-3.5 p-3.5 rounded-2xl border text-left transition-all duration-200 ${
-                        isSelected 
-                          ? 'border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/10' 
+                        isSelected
+                          ? 'border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/10'
                           : 'border-slate-100 dark:border-slate-800 bg-slate-50/20 dark:bg-slate-900/40 hover:bg-slate-50 dark:hover:bg-slate-800/30'
                       }"
                     >
@@ -141,8 +141,8 @@ export default function OnboardingWizard({ settings, onSave }) {
                       key=${rem.id}
                       onClick=${() => setReminder(rem.id)}
                       className="w-full flex items-start gap-3.5 p-3.5 rounded-2xl border text-left transition-all duration-200 ${
-                        isSelected 
-                          ? 'border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/10' 
+                        isSelected
+                          ? 'border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/10'
                           : 'border-slate-100 dark:border-slate-800 bg-slate-50/20 dark:bg-slate-900/40 hover:bg-slate-50 dark:hover:bg-slate-800/30'
                       }"
                     >
@@ -183,8 +183,8 @@ export default function OnboardingWizard({ settings, onSave }) {
                   <button
                     onClick=${() => setTheme('light')}
                     className="flex flex-col items-center justify-center p-4 rounded-2xl border transition-all duration-200 ${
-                      theme === 'light' 
-                        ? 'border-emerald-500/60 bg-emerald-50/20 text-emerald-600' 
+                      theme === 'light'
+                        ? 'border-emerald-500/60 bg-emerald-50/20 text-emerald-600'
                         : 'border-slate-100 dark:border-slate-800 bg-slate-50/20 dark:bg-slate-900/40 text-slate-500 dark:text-slate-400'
                     }"
                   >
@@ -195,8 +195,8 @@ export default function OnboardingWizard({ settings, onSave }) {
                   <button
                     onClick=${() => setTheme('dark')}
                     className="flex flex-col items-center justify-center p-4 rounded-2xl border transition-all duration-200 ${
-                      theme === 'dark' 
-                        ? 'border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/10 text-emerald-400' 
+                      theme === 'dark'
+                        ? 'border-emerald-500/60 bg-emerald-50/20 dark:bg-emerald-950/10 text-emerald-400'
                         : 'border-slate-100 dark:border-slate-800 bg-slate-50/20 dark:bg-slate-900/40 text-slate-500 dark:text-slate-400'
                     }"
                   >
@@ -222,14 +222,14 @@ export default function OnboardingWizard({ settings, onSave }) {
                     onClick=${() => setSharing(!sharing)}
                     className="focus:outline-none shrink-0 transition-transform active:scale-95 mt-0.5"
                   >
-                    ${sharing 
+                    ${sharing
                       ? html`<${ToggleRight} className="w-11 h-7 text-emerald-500" />`
                       : html`<${ToggleLeft} className="w-11 h-7 text-slate-300 dark:text-slate-600" />`
                     }
                   </button>
                 </div>
 
-                ${sharing 
+                ${sharing
                   ? html`
                     <div className="bg-emerald-50/30 dark:bg-emerald-950/10 border border-emerald-100 dark:border-emerald-900/20 rounded-xl p-2.5 flex items-start gap-2">
                       <${Check} className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -253,7 +253,7 @@ export default function OnboardingWizard({ settings, onSave }) {
 
           <!-- BUTTON BAR -->
           <div className="flex items-center justify-between pt-2">
-            ${step > 1 
+            ${step > 1
               ? html`
                 <button
                   onClick=${prevStep}
@@ -266,7 +266,7 @@ export default function OnboardingWizard({ settings, onSave }) {
               : html`<div></div>`
             }
 
-            ${step < 3 
+            ${step < 3
               ? html`
                 <button
                   onClick=${nextStep}

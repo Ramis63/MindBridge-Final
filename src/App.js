@@ -99,8 +99,8 @@ export default function App() {
   // RENDER AUTHENTICATION VIEW IF UNLOGGED
   if (!currentUser) {
     return html`
-      <${AuthForm} 
-        onAuthSuccess=${handleAuthSuccess} 
+      <${AuthForm}
+        onAuthSuccess=${handleAuthSuccess}
       />
     `;
   }
@@ -108,8 +108,8 @@ export default function App() {
   // RENDER ONBOARDING WIZARD IF LOGGED IN BUT NOT ONBOARDED
   if (currentUser && !settings.onboarded) {
     return html`
-      <${OnboardingWizard} 
-        settings=${settings} 
+      <${OnboardingWizard}
+        settings=${settings}
         onSave=${(newSettings) => handleSettingsChange({ ...newSettings, onboarded: true })}
       />
     `;
@@ -118,12 +118,12 @@ export default function App() {
   // RENDER MAIN APPLICATION VIEW IF LOGGED IN
   return html`
     <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 flex flex-col transition-colors duration-300">
-      
-      <${Header} 
-        activeTab=${activeTab} 
-        setActiveTab=${setActiveTab} 
-        theme=${settings.theme} 
-        toggleTheme=${toggleTheme} 
+
+      <${Header}
+        activeTab=${activeTab}
+        setActiveTab=${setActiveTab}
+        theme=${settings.theme}
+        toggleTheme=${toggleTheme}
         user=${currentUser}
         onLogout=${handleLogout}
       />

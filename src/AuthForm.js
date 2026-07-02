@@ -12,7 +12,7 @@ export default function AuthForm({ onAuthSuccess, apiFetch }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  
+
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -56,7 +56,7 @@ export default function AuthForm({ onAuthSuccess, apiFetch }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
-    
+
     if (!validate()) return;
     setLoading(true);
 
@@ -78,7 +78,7 @@ export default function AuthForm({ onAuthSuccess, apiFetch }) {
 
   return html`
     <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 transition-colors duration-300 relative overflow-hidden">
-      
+
 
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none select-none opacity-40 dark:opacity-20 transition-opacity duration-1000">
         <div className="absolute -top-[10%] -left-[20%] w-[80%] h-[60%] rounded-full bg-gradient-to-br from-emerald-200 to-teal-100 blur-[130px] dark:from-emerald-900/30 dark:to-teal-900/10"></div>
@@ -100,7 +100,7 @@ export default function AuthForm({ onAuthSuccess, apiFetch }) {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4">
         <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg py-8 px-6 shadow-xl shadow-slate-100/50 dark:shadow-none border border-slate-100 dark:border-slate-800 rounded-3xl space-y-6">
-          
+
           <div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-white flex items-center gap-2">
               <${Sparkles} className="w-5 h-5 text-emerald-500" />
@@ -121,7 +121,7 @@ export default function AuthForm({ onAuthSuccess, apiFetch }) {
 
 
           <form className="space-y-4" onSubmit=${handleSubmit}>
-            
+
             ${!isLogin && html`
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
@@ -218,9 +218,9 @@ export default function AuthForm({ onAuthSuccess, apiFetch }) {
                 disabled=${loading}
                 className="w-full py-3.5 px-6 rounded-2xl font-bold text-white text-xs bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-600 dark:to-teal-700 shadow-md shadow-emerald-100 dark:shadow-none hover:shadow-lg hover:from-emerald-600 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/30 active:scale-98 disabled:opacity-80 disabled:scale-100 disabled:shadow-none transition-all duration-300 flex items-center justify-center gap-2"
               >
-                ${loading 
+                ${loading
                   ? html`<span>Processing...</span>`
-                  : isLogin 
+                  : isLogin
                     ? html`
                         <${LogIn} className="w-4 h-4 text-white" />
                         <span>Sign In</span>

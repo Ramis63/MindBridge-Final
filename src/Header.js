@@ -32,20 +32,20 @@ export default function Header({ activeTab, setActiveTab, theme, toggleTheme, us
               </span>
             `}
 
-            <button 
+            <button
               onClick=${toggleTheme}
               className="w-10 h-10 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 active:scale-95 transition-all duration-200"
               aria-label="Toggle Dark Mode"
               id="theme-toggle-btn"
             >
-              ${theme === 'light' 
+              ${theme === 'light'
                 ? html`<${Moon} className="w-5 h-5 text-indigo-500 animate-spin-slow" />`
                 : html`<${Sun} className="w-5 h-5 text-amber-400 animate-spin-slow" />`
               }
             </button>
 
             ${user && html`
-              <button 
+              <button
                 onClick=${onLogout}
                 className="w-10 h-10 rounded-xl border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 active:scale-95 transition-all duration-200"
                 aria-label="Log Out"
@@ -66,8 +66,8 @@ export default function Header({ activeTab, setActiveTab, theme, toggleTheme, us
                 key=${tab.id}
                 onClick=${() => setActiveTab(tab.id)}
                 className="flex-1 py-3 px-2 flex flex-col items-center gap-1.5 rounded-xl transition-all duration-300 relative ${
-                  isActive 
-                    ? 'text-emerald-600 dark:text-emerald-400 font-semibold' 
+                  isActive
+                    ? 'text-emerald-600 dark:text-emerald-400 font-semibold'
                     : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'
                 }"
                 id="nav-tab-${tab.id}"

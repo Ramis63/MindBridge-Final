@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>MindBridge — Student Mental Health Tracker</title>
-  
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="MindBridge is a privacy-first, local-storage student wellness tracker to monitor stress, anxiety, and burnout. Created specifically for university students.">
   <meta name="theme-color" content="#10b981">
-  
+
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Tailwind Config & Custom Utilities -->
   <script>
     tailwind.config = {
@@ -43,7 +43,7 @@
       }
     }
   </script>
-  
+
   <!-- Custom CSS for animations and tweaks -->
   <style type="text/css">
     body {
@@ -56,16 +56,16 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.95; transform: scale(1.03); }
     }
-    
+
     @keyframes bounceSlow {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-4px); }
     }
-    
+
     @keyframes growHeight {
       from { height: 0; }
     }
-    
+
     @keyframes fadeInWidth {
       from { width: 0; opacity: 0; }
       to { width: auto; opacity: 1; }
@@ -109,7 +109,7 @@
       background: #10b981;
       border: 3px solid #0f172a;
     }
-    
+
     /* Hide scrollbars but keep functionality */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
@@ -184,7 +184,7 @@
   </script>
 </head>
 <body class="bg-slate-50/50 dark:bg-slate-950 transition-colors duration-300">
-  
+
   <!-- Glowing Calming Background Blobs -->
   <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none select-none opacity-40 dark:opacity-20 transition-opacity duration-1000">
     <div class="absolute -top-[10%] -left-[20%] w-[80%] h-[60%] rounded-full bg-gradient-to-br from-emerald-200 to-teal-100 blur-[130px] dark:from-emerald-900/30 dark:to-teal-900/10"></div>
