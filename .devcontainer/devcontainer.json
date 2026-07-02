@@ -16,7 +16,13 @@
     "terminal.integrated.defaultProfile.linux": "bash"
   },
   "postCreateCommand": "python -m pip install --upgrade pip && python -m pip install -r requirements-dev.txt",
-  "postStartCommand": "nohup python run.py > /tmp/mindbridge.log 2>&1 &",
+  "postStartCommand": "nohup python -u run.py > /tmp/mindbridge.log 2>&1 &",
   "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "MindBridge app",
+      "onAutoForward": "openBrowser"
+    }
+  },
   "remoteUser": "vscode"
 }
