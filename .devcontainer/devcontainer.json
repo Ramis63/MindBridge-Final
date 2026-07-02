@@ -16,7 +16,6 @@
     "terminal.integrated.defaultProfile.linux": "bash"
   },
   "postCreateCommand": "python -m pip install --upgrade pip && python -m pip install -r requirements-dev.txt",
-  "postStartCommand": "setsid nohup python -u run.py < /dev/null > /tmp/mindbridge.log 2>&1 &",
   "forwardPorts": [8000],
   "portsAttributes": {
     "8000": {
