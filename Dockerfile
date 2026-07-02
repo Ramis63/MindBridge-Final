@@ -17,6 +17,10 @@ COPY . .
 # This ensures data persists when the container restarts
 RUN mkdir -p /data
 
+# Add the default Codespaces user and own app/data directories
+RUN useradd --create-home --shell /bin/bash vscode \
+    && chown -R vscode:vscode /app /data
+
 # Expose the app port
 EXPOSE 8000
 
