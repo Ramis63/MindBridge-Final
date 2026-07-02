@@ -62,9 +62,11 @@ jobs:
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
+        env:
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
         with:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ toLower(github.repository_owner) }}/mindbridge:latest
-            ghcr.io/${{ toLower(github.repository_owner) }}/mindbridge:${{ github.sha }}
+            ghcr.io/ramis63/mindbridge:latest
+            ghcr.io/ramis63/mindbridge:${{ github.sha }}
