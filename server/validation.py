@@ -103,7 +103,22 @@ def validate_settings(settings: dict) -> dict:
     if not isinstance(anonymous_sharing, bool):
         raise ValidationError('anonymousSharing must be a boolean', 'anonymousSharing')
 
+    onboarded = settings.get('onboarded', False)
+    if not isinstance(onboarded, bool):
+        raise ValidationError('onboarded must be a boolean', 'onboarded')
+
+    goals = settings.get('goals', [])
+    if not isinstance(goals, list) or not all(isinstance(g, str) for g in goals):
+        raise ValidationError('goals must be a list of strings', 'goals')
+
+    reminder_time = settings.get('reminderTime', 'evening')
+    if not isinstance(reminder_time, str):
+        raise ValidationError('reminderTime must be a string', 'reminderTime')
+
     return {
         'theme': theme,
         'anonymousSharing': anonymous_sharing,
+        'onboarded': onboarded,
+        'goals': goals,
+        'reminderTime': reminder_time,
     }

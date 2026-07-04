@@ -21,6 +21,11 @@ RUN mkdir -p /data
 RUN useradd --create-home --shell /bin/bash vscode \
     && chown -R vscode:vscode /app /data
 
+# Run as the same user VS Code/Codespaces uses for terminals and tasks,
+# so files created by the auto-started server (e.g. the SQLite DB) stay
+# writable if the server is later restarted manually from a Codespaces terminal
+USER vscode
+
 # Expose the app port
 EXPOSE 8000
 

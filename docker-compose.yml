@@ -11,8 +11,8 @@ services:
     environment:
       - DB_PATH=/data/mindbridge.db
       - MINDBRIDGE_ENV=prod
-      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
-      - CORS_ORIGIN=${CORS_ORIGIN:-*}
+      - JWT_SECRET=${JWT_SECRET:?Set JWT_SECRET to a random secret of 32+ chars (see config/prod.env.example)}
+      - CORS_ORIGIN=${CORS_ORIGIN:?Set CORS_ORIGIN to your deployed origin (see config/prod.env.example)}
 
 volumes:
   mindbridge-data:
